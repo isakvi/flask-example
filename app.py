@@ -1,7 +1,23 @@
-from flask import Flask
+from flask import Flask, render_template, jsonify
+from flask_cors import CORS, cross_origin
+import json
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='',
+                  static_folder='react-app/build',
+                  template_folder='react-app/build')               
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+
 
 @app.route("/")
+@cross_origin()
 def return_react_app():
-    return "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+    return render_template("index.html")
+
+@cross_origin()
+@app.route("/getExternalData")
+def get_external_data():
+    return jsonify(
+        text="This is a placeholder"
+    )
