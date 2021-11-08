@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify
 from flask_cors import CORS, cross_origin
-import json
+import requests
 
 app = Flask(__name__, static_url_path='',
                   static_folder='react-app/build',
@@ -15,9 +15,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def return_react_app():
     return render_template("index.html")
 
-@cross_origin()
-@app.route("/getExternalData")
-def get_external_data():
-    return jsonify(
-        text="This is a placeholder"
-    )
+@app.route("/getMealData")
+def get_meal_data():
+    api_url = "https://www.themealdb.com/api/json/v1/1/random.php"
+    response = requests.get(api_url)
+    return response.json()
