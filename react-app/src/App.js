@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 class App extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       imgSrc: null,
@@ -34,7 +34,7 @@ class App extends React.Component {
       })
     }))
     .catch(err => {
-      throw new Error(err)
+      this.setState({recipeInstr: err})
     })
     
   }
