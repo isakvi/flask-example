@@ -12,11 +12,11 @@ class App extends React.Component {
     this.getData = this.getData.bind(this);
 }
   render() {
-    return <div class="grid-container">
-            <div class="item1"> Welcome to the Recipe Suggester!</div>
-            <div class="item5"><button onClick={this.getData}> Click me! </button></div>
-            <div class="item3">{this.state.imgSrc === null ? <div></div> : <img src={this.state.imgSrc} id="pic"></img>}</div>  
-            <div class="item4">
+    return <div className="grid-container">
+            <div className="headerArea"> Welcome to the Recipe Suggester!</div>
+            <div className="buttonArea"><button onClick={this.getData}> Click me! </button></div>
+            <div className="imgArea">{this.state.imgSrc === null ? <div></div> : <img src={this.state.imgSrc} id="pic"></img>}</div>  
+            <div className="textArea">
               <div><h2>{this.state.recipeName}</h2></div>
               <p>{this.state.recipeInstr}</p></div>
             </div>
