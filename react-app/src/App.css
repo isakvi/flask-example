@@ -1,38 +1,37 @@
 
-.item1 { 
-  grid-area: header; 
+.headerArea { 
+  grid-area: headerArea; 
   font-size: 50px;
   color: white;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
   background-color: #664147
 }
-.item3 { grid-area: main; }
-.item4 { 
-    grid-area: right;
+.imgArea { 
+    grid-area: imgArea;
 }
-.item5 { 
-    grid-area: footer;
- }
-
+.textArea { 
+    grid-area: textArea;
+}
+.buttonArea { 
+    grid-area: buttonArea;
+}
 .grid-container {
     display: grid;
     grid-template-areas:
-        'header header header header header header'
-        'footer footer footer footer footer footer'
-        'main main main right right right';
+        'headerArea headerArea headerArea headerArea headerArea headerArea'
+        'buttonArea buttonArea buttonArea buttonArea buttonArea buttonArea'
+        'imgArea imgArea imgArea textArea textArea textArea';
     grid-gap: 10px;
     padding: 10px;
 }
-
 .grid-container > div {
     text-align: center;
     padding: 20px 0;
-  }
+}
 button {
     border-radius: 12px;
     font-size: 30px;
 }
-  
 img {
       width: "600"; 
       height: "600";
